@@ -61,8 +61,8 @@ spec:
           periodSeconds: 5
         resources:
 {{ toYaml .Values.resources | indent 10 }}
+      hostNetwork: {{ .Values.useHostNetwork }}
     {{- with .Values.nodeSelector }}
-      hostNetwork: {{ .Values.useHostNetwork }} 
       nodeSelector:
 {{ toYaml . | indent 8 }}
     {{- end }}
